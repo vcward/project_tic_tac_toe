@@ -1,0 +1,16 @@
+.container {
+  height: 90vh;
+}
+
+.row {
+  height: 100%;
+}
+
+.container #game-board {
+  height: 100%;
+}
+
+.container #game-board .cell {
+  flex: 0 0 32.5%;
+  background-color: #e2e3e5;
+}
