@@ -12,5 +12,11 @@
 
 .container #game-board .cell {
   flex: 0 0 32.5%;
+  align-items: center;
   background-color: #e2e3e5;
+  flex: 0 0 32.5%;
+  font-weight: bold;
+  display: flex;
+  height: 30%;
+  justify-content: center;
 }

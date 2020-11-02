@@ -22,9 +22,82 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-3">
+        <div class="col-12 col-md-3" id="game-options">
           <h1>Tic-Tac-Toe</h1>
-          <form id="player-setup" onsubmit="startGame(event)">
+          <!-- buttons for game options -->
+          <div id="game-options-buttons">
+            <button
+              type="button"
+              class="btn btn-outline-primary btn-lg btn-block"
+              onclick="displaySinglePlayerForm()"
+            >
+              1 Player
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-primary btn-lg btn-block"
+              onclick="displayTwoPlayerForm()"
+            >
+              2 Player
+            </button>
+          </div>
+
+          <!-- single player form -->
+          <form
+            id="player-setup"
+            onsubmit="startGame(event)"
+            class="d-none player-form"
+          >
+            <div class="form-group">
+              <label for="player1">Player</label>
+              <input
+                type="text"
+                class="form-control"
+                id="player1"
+                aria-describedby="player1Help"
+              />
+              <small id="player1Help" class="form-text text-muted"
+                >Enter name.</small
+              >
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="difficultyOptions"
+                onclick="updateDifficulty(this)"
+                id="easyDiff"
+                value="easy"
+                checked
+              />
+              <label class="form-check-label" for="easyDiff">Easy</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="difficultyOptions"
+                onclick="updateDifficulty(this)"
+                id="hardDiff"
+                value="hard"
+              />
+              <label class="form-check-label" for="hardDiff">Hard</label>
+            </div>
+            <button
+              type="submit"
+              form="player-setup"
+              class="btn btn-primary d-block"
+            >
+              Start
+            </button>
+          </form>
+
+          <!-- two player form -->
+          <form
+            id="two-player-setup"
+            onsubmit="startGame(event)"
+            class="d-none player-form"
+          >
             <div class="form-group">
               <label for="player1">Player 1</label>
               <input
@@ -49,14 +122,29 @@
                 >Enter name.</small
               >
             </div>
-            <button type="submit" form="player-setup" class="btn btn-primary">
+            <button
+              type="submit"
+              form="two-player-setup"
+              class="btn btn-primary"
+            >
               Start
             </button>
           </form>
+
+          <!-- game status and restart -->
+          <div id="game-status" class="d-none"></div>
+          <button
+            type="button"
+            id="restart-button"
+            class="btn btn-outline-primary btn-lg btn-block d-none"
+            onclick="restartGame()"
+          >
+            Restart
+          </button>
         </div>
-        <div class="col-9">
+        <div class="col-12 col-md-9">
           <div
-            class="d-flex flex-wrap justify-content-around"
+            class="d-flex flex-wrap justify-content-around align-content-start"
             id="game-board"
           ></div>
         </div>
